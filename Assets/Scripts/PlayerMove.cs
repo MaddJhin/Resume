@@ -11,29 +11,20 @@ public class PlayerMove : MonoBehaviour {
 	// Use this for initialization
 	void Update () {
 	
-		if (grounded && Input.GetKeyDown (KeyCode.Space))
-		{
-			rigidbody.AddForce (jumpForce, ForceMode.VelocityChange);
-		}
+//		if (grounded && Input.GetKeyDown (KeyCode.Space))
+//		{
+//			rigidbody.AddForce (jumpForce, ForceMode.VelocityChange);
+//		}
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		if (rigidbody.velocity.magnitude < maxSpeed)
-			{
-				rigidbody.AddForce (Input.GetAxis("Horizontal") * speed, 0f, 0f, ForceMode.Acceleration);
-			}
-
+		rigidbody.velocity = new Vector3 (0f, Input.GetAxis("Vertical") * speed, 0f);
 
 //		if (rigidbody.velocity.magnitude < maxSpeed)
 //		{
-//			rigidbody.AddForce (Input.GetAxis("Horizontal") * speed, 0f, 0f);
-//		}
-//
-//		if (Input.GetKeyDown (KeyCode.Space))
-//		{
-//			rigidbody.velocity = rigidbody.velocity + (Vector3.up * jumpForce);
+//			rigidbody.AddForce (0f, Input.GetAxis("Vertical") * speed, 0f, ForceMode.Acceleration);
 //		}
 
 	}
